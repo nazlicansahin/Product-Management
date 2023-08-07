@@ -2,9 +2,11 @@
 import { useState } from "react";
 
 import { useRouter } from "next/navigation";
-export default function EditTopicForm({ id, title, description }) {
+export default function EditTopicForm({ id, title, description, stock }) {
     const [newTitle, setNewTitle] = useState(title);
     const [newDescription, setNewDescription] = useState(description);
+    const [newStock, setNewStock] = useState(stock);
+
     const router = useRouter();
     const handleSubmit = async (e) => {
         e.preventDefault();//refreshi engeller
@@ -14,14 +16,16 @@ export default function EditTopicForm({ id, title, description }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ newTitle, newDescription }),
+                body: JSON.stringify({ newTitle, newDescription, newStock }),
             })
             if (!res.ok) {
-                throw new Error('Failed to update topic')
+                throw new Error('Failed to update product')
             }
             router.push('/')
+            router.refresh()
+
         } catch (error) {
-            console.log('Error updating topic:', error);
+            console.log('Error update product:', error);
 
         }
     }
@@ -31,6 +35,7 @@ export default function EditTopicForm({ id, title, description }) {
 
             <input onChange={(e) => setNewDescription(e.target.value)} value={newDescription} type="text" className="border border-slate-500 px-8 py-2" placeholder="Topic Description" />
 
+            <input onChange={(e) => setNewStock(e.target.value)} value={newStock} type="text" className="border border-slate-500 px-8 py-2" placeholder="Topic Description" />
 
             <button className="bg-slate-700 text-white font-bold px-8 py-3 w-fit">Edit Topic</button>
         </form>
