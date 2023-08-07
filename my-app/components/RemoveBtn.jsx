@@ -3,10 +3,10 @@ import { HiOutlineTrash } from "react-icons/hi"
 import { useRouter } from "next/navigation"
 export default function RemoveBtn({ id }) {
     const router = useRouter();
-    const removeTopic = async () => {
-        const confirmed = confirm('Are you sure you want to delete this topic?');
+    const removeProduct = async () => {
+        const confirmed = confirm('Are you sure you want to delete this product?');
         if (confirmed) {
-            const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+            const res = await fetch(`http://localhost:3000/api/products?id=${id}`, {
                 method: 'DELETE',
             });
             if (res.ok) {
@@ -15,7 +15,7 @@ export default function RemoveBtn({ id }) {
         }
     }
     return (
-        <button onClick={removeTopic} className="text-red-600">
+        <button onClick={removeProduct} className="text-red-600">
             <HiOutlineTrash size={24} />
 
         </button>

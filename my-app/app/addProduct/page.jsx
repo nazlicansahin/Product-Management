@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-export default function addTopic() {
+export default function addProduct() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [stock, setStock] = useState('');
@@ -15,7 +15,7 @@ export default function addTopic() {
             return
         }
         try {
-            const res = await fetch('http://localhost:3000/api/topics', {
+            const res = await fetch('http://localhost:3000/api/products', {
                 cache: 'no-store',
                 method: 'POST',
                 headers: {

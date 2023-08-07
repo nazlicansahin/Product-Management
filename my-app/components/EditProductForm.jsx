@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 import { useRouter } from "next/navigation";
-export default function EditTopicForm({ id, title, description, stock }) {
+export default function EditProductForm({ id, title, description, stock }) {
     const [newTitle, setNewTitle] = useState(title);
     const [newDescription, setNewDescription] = useState(description);
     const [newStock, setNewStock] = useState(stock);
@@ -11,7 +11,7 @@ export default function EditTopicForm({ id, title, description, stock }) {
     const handleSubmit = async (e) => {
         e.preventDefault();//refreshi engeller
         try {
-            const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+            const res = await fetch(`http://localhost:3000/api/products/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,13 +31,13 @@ export default function EditTopicForm({ id, title, description, stock }) {
     }
     return (
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <input onChange={(e) => setNewTitle(e.target.value)} value={newTitle} type="text" className="border border-slate-500 px-8 py-2" placeholder="Topic Title" />
+            <input onChange={(e) => setNewTitle(e.target.value)} value={newTitle} type="text" className="border border-slate-500 px-8 py-2" placeholder="Product Title" />
 
-            <input onChange={(e) => setNewDescription(e.target.value)} value={newDescription} type="text" className="border border-slate-500 px-8 py-2" placeholder="Topic Description" />
+            <input onChange={(e) => setNewDescription(e.target.value)} value={newDescription} type="text" className="border border-slate-500 px-8 py-2" placeholder="Product Description" />
 
-            <input onChange={(e) => setNewStock(e.target.value)} value={newStock} type="text" className="border border-slate-500 px-8 py-2" placeholder="Topic Description" />
+            <input onChange={(e) => setNewStock(e.target.value)} value={newStock} type="text" className="border border-slate-500 px-8 py-2" placeholder="Products Description" />
 
-            <button className="bg-slate-700 text-white font-bold px-8 py-3 w-fit">Edit Topic</button>
+            <button className="bg-slate-700 text-white font-bold px-8 py-3 w-fit">Edit Product</button>
         </form>
     )
 }

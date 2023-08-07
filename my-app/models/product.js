@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const topicSchema = new Schema(
+const productSchema = new Schema(
     {
         title: String,
         description: String,
@@ -10,6 +10,6 @@ const topicSchema = new Schema(
         timestamps: true, //input kismisi
     }
 );
-const Topic = mongoose.models.Topic || mongoose.model('Topic', topicSchema);
+const Product = mongoose.models.Product || mongoose.model('Product', productSchema);
 
-export default Topic;//api itopics route da kullaniyoruz 
+export default Product;//api products route da kullaniyoruz 
