@@ -18,11 +18,13 @@ const getProducts = async () => {
     }
 }
 export default async function ProductsList() {
-    const { products } = await getProducts();
+    const { products } = await getProducts().then(resp => {
+        return resp ? resp : {};
+    })
     /*ekrana yazdirirken {} ler icinde veri tabaninda kayitli oldugu sekild cagiriyoruz */
     return (
         <>
-            {products.map((t) => (
+            {products?.map((t) => (
                 <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start">
                     <div>
                         <h2 className="font-bold text-2xl">{t.title}</h2>
