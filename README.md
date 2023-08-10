@@ -11,7 +11,7 @@ This read.me Includes
 - What should I learn
 ## How It Works Video Link 
 
-https://youtu.be/EnTMd57SIqY
+https://youtu.be/w_goTtg768s
 
 ## Features
 
