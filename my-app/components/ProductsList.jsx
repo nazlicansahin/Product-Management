@@ -25,19 +25,20 @@ export default async function ProductsList() {
     return (
         <>
             {products?.map((t) => (
-                <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start">
-                    <div>
-                        <h2 className="font-bold text-2xl">{t.title}</h2>
-                        <div>
-                            {t.description}
-                        </div>
+                <div className="flex justify-between items-center p-4 border border-slate-300 bg-white rounded-md my-3  gap-5 ">
+                    <div className="flex justify-between items-center rounded-md bg-white px-8 py-3 w-64">
+                        <h2 className="font-bold text-xl">{t.title}</h2>
                     </div>
-                    <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5">
+                    <div className=" w-96">
+                        {t.description.length > 40 ?
+                            `${t.description.substring(0, 40)}...` : t.description
+                        }                    </div>
+                    <div className="p-4  rounded border-slate-300 my-3 flex justify-between gap-5">
                         {t.stock}
                     </div>
                     <div className="flex gap-2">
                         <RemoveBtn id={t._id} />
-                        <Link href={`/editProduct/${t._id}`}> <HiPencilAlt size={24} /> </Link>
+                        <Link href={`/editProduct/${t._id}`}> <HiPencilAlt size={24} className="text-slate-400" /> </Link>
                     </div>
                 </div>))}
         </>

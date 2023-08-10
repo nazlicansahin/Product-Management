@@ -35,12 +35,12 @@ export default function addProduct() {
         }
     }
     return (<form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" className="border border-slate-500 px-8 py-2" placeholder="Product Name" />
+        <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" className="flex justify-between items-center p-3 border border-slate-300 bg-white rounded-md my-1  gap-5" placeholder="Product Name" />
 
-        <input onChange={(e) => setDescription(e.target.value)} value={description} type="text" className="border border-slate-500 px-8 py-2" placeholder="Product Description" />
+        <input onChange={(e) => setDescription(e.target.value)} value={description} type="text" className="flex justify-between items-center p-3 border border-slate-300 bg-white rounded-md my-1  gap-5" placeholder="Product Description" />
 
-        <input onChange={(e) => setStock(e.target.value)} value={stock} type="text" className="border border-slate-500 px-8 py-2" placeholder="Stock number" />
+        <input onChange={(e) => setStock(e.target.value)} value={stock} type="text" className="flex justify-between items-center p-3 border border-slate-300 bg-white rounded-md my-1  gap-5" placeholder="Stock number" />
 
-        <button type='submit' className="bg-slate-700 text-white font-bold px-8 py-3 w-fit">Add Product</button>
+        <button type='submit' className="text-white py-3 rounded text-center bg-pink-500 p-2 font-bold w-fit">Add Product</button>
     </form>)
 }
